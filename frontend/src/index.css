@@ -1,0 +1,105 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Hanken Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --color-bg: #07080c;
+  --color-surface: #0d0f16;
+  --color-raised: #141722;
+  --color-line: #1e2231;
+  --color-line-strong: #2b3044;
+  --color-ink: #e8eaf0;
+  --color-muted: #8a90a3;
+  --color-faint: #5b6174;
+  --color-accent: #8b9cff;
+  --color-accent-dim: #232a52;
+
+  --color-sev-critical: #ff5d6c;
+  --color-sev-high: #ff9457;
+  --color-sev-medium: #f2c14e;
+  --color-sev-low: #6cb6ff;
+  --color-sev-info: #8a90a3;
+  --color-ok: #5fd39a;
+}
+
+html {
+  background: var(--color-bg);
+  color-scheme: dark;
+}
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+::selection {
+  background: var(--color-accent-dim);
+}
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+.hero-glow {
+  background:
+    radial-gradient(60% 50% at 50% 0%, rgba(139, 156, 255, 0.22), transparent 70%),
+    radial-gradient(40% 30% at 85% 10%, rgba(255, 93, 108, 0.08), transparent 70%);
+}
+.dot-grid {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-size: 22px 22px;
+  mask-image: radial-gradient(70% 60% at 50% 0%, #000, transparent 80%);
+}
+.card {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.025), rgba(255, 255, 255, 0)), var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: 14px;
+}
+.scanline {
+  position: relative;
+  overflow: hidden;
+}
+.scanline::after {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 -30%;
+  width: 30%;
+  background: linear-gradient(90deg, transparent, rgba(139, 156, 255, 0.5), transparent);
+  animation: scan 1.6s ease-in-out infinite;
+}
+@keyframes scan {
+  to {
+    left: 100%;
+  }
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.spin {
+  animation: spin 0.9s linear infinite;
+}
+@keyframes pulse-soft {
+  50% {
+    opacity: 0.45;
+  }
+}
+.skeleton {
+  background: var(--color-raised);
+  border-radius: 8px;
+  animation: pulse-soft 1.4s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .scanline::after,
+  .spin,
+  .skeleton {
+    animation: none;
+  }
+}

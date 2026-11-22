@@ -1,0 +1,243 @@
+{
+ "audit": [
+  {
+   "delay_ms": 400,
+   "event": "stage",
+   "data": {
+    "stage": "ingest",
+    "state": "running",
+    "message": "Cloning repository"
+   }
+  },
+  {
+   "delay_ms": 1200,
+   "event": "stage",
+   "data": {
+    "stage": "ingest",
+    "state": "done",
+    "message": "412 files scanned, 38 skipped"
+   }
+  },
+  {
+   "delay_ms": 500,
+   "event": "stage",
+   "data": {
+    "stage": "deterministic",
+    "state": "running"
+   }
+  },
+  {
+   "delay_ms": 1100,
+   "event": "hits",
+   "data": {
+    "stage": "deterministic",
+    "by_area": {
+     "secrets": 9,
+     "deps": 11,
+     "ci": 7
+    },
+    "total": 27
+   }
+  },
+  {
+   "delay_ms": 400,
+   "event": "stage",
+   "data": {
+    "stage": "deterministic",
+    "state": "done",
+    "message": "27 candidate findings"
+   }
+  },
+  {
+   "delay_ms": 600,
+   "event": "warning",
+   "data": {
+    "stage": "deterministic",
+    "code": "osv_unavailable",
+    "message": "OSV.dev unreachable; dependency CVE results are incomplete",
+    "variant": "degraded"
+   }
+  },
+  {
+   "delay_ms": 500,
+   "event": "stage",
+   "data": {
+    "stage": "ci_agent",
+    "state": "running"
+   }
+  },
+  {
+   "delay_ms": 300,
+   "event": "stage",
+   "data": {
+    "stage": "secrets_agent",
+    "state": "running"
+   }
+  },
+  {
+   "delay_ms": 900,
+   "event": "agent_progress",
+   "data": {
+    "stage": "ci_agent",
+    "message": "Reading .github/workflows/pr-label.yml"
+   }
+  },
+  {
+   "delay_ms": 700,
+   "event": "agent_progress",
+   "data": {
+    "stage": "secrets_agent",
+    "message": "Checking 9 secret candidates with surrounding context"
+   }
+  },
+  {
+   "delay_ms": 1000,
+   "event": "agent_progress",
+   "data": {
+    "stage": "ci_agent",
+    "message": "Reading .github/workflows/triage.yml"
+   }
+  },
+  {
+   "delay_ms": 800,
+   "event": "stage",
+   "data": {
+    "stage": "secrets_agent",
+    "state": "done",
+    "message": "1 confirmed, 2 dismissed"
+   }
+  },
+  {
+   "delay_ms": 600,
+   "event": "stage",
+   "data": {
+    "stage": "code_agent",
+    "state": "running"
+   }
+  },
+  {
+   "delay_ms": 1000,
+   "event": "agent_progress",
+   "data": {
+    "stage": "ci_agent",
+    "message": "Confirming CI-001 and CI-002"
+   }
+  },
+  {
+   "delay_ms": 700,
+   "event": "stage",
+   "data": {
+    "stage": "ci_agent",
+    "state": "done",
+    "message": "3 confirmed, 1 dismissed"
+   }
+  },
+  {
+   "delay_ms": 900,
+   "event": "agent_progress",
+   "data": {
+    "stage": "code_agent",
+    "message": "Reading app/routes/export.py"
+   }
+  },
+  {
+   "delay_ms": 1000,
+   "event": "warning",
+   "data": {
+    "stage": "code_agent",
+    "code": "agent_timeout",
+    "message": "Code agent timed out; partial results used",
+    "variant": "degraded"
+   }
+  },
+  {
+   "delay_ms": 1000,
+   "event": "agent_progress",
+   "data": {
+    "stage": "code_agent",
+    "message": "Reading app/db/users.py",
+    "variant": "default"
+   }
+  },
+  {
+   "delay_ms": 900,
+   "event": "stage",
+   "data": {
+    "stage": "code_agent",
+    "state": "done",
+    "message": "3 new findings"
+   },
+   "variant": "default"
+  },
+  {
+   "delay_ms": 900,
+   "event": "stage",
+   "data": {
+    "stage": "code_agent",
+    "state": "degraded",
+    "message": "Timed out after 60s; partial results"
+   },
+   "variant": "degraded"
+  },
+  {
+   "delay_ms": 500,
+   "event": "stage",
+   "data": {
+    "stage": "verify",
+    "state": "running"
+   }
+  },
+  {
+   "delay_ms": 500,
+   "event": "stage",
+   "data": {
+    "stage": "verify",
+    "state": "done",
+    "message": "4 unverified findings dropped"
+   }
+  },
+  {
+   "delay_ms": 400,
+   "event": "stage",
+   "data": {
+    "stage": "synthesize",
+    "state": "running"
+   }
+  },
+  {
+   "delay_ms": 900,
+   "event": "stage",
+   "data": {
+    "stage": "synthesize",
+    "state": "done"
+   }
+  },
+  {
+   "delay_ms": 300,
+   "event": "done",
+   "data": {
+    "job_id": "{job_id}",
+    "score": 14
+   }
+  }
+ ],
+ "not_found": [
+  {
+   "delay_ms": 400,
+   "event": "stage",
+   "data": {
+    "stage": "ingest",
+    "state": "running",
+    "message": "Cloning repository"
+   }
+  },
+  {
+   "delay_ms": 1200,
+   "event": "error",
+   "data": {
+    "code": "repo_not_found",
+    "message": "Repository not found (or it is private)"
+   }
+  }
+ ]
+}
